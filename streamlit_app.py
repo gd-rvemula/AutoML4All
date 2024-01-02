@@ -21,12 +21,12 @@ with st.sidebar:
 
     st.image("./logo.png")
     st.title("AutoML4All")
-    st.info("This project powered by AutoML. Upload your data and choose type your EDA and Prepare your data for ML modeling")
+    st.info("This project powered by AutoML. Upload your data and choose type your Exploratory Data Analysis (EDA) and Prepare your data for ML modeling")
     choice = st.radio("Choose the Desired operation", ["Upload your data","Perform EDA",'Data Preparing and Modeling'])
 
 
 if choice == "Upload your data":
-    st.title("Upload Your Dataset please!")
+    st.title("Upload Your Dataset!")
     file = st.file_uploader("Upload Your Dataset")
 
     if file:
