@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y vim && apt-get install procps
+RUN apt-get update &&  apt-get install -y vim 
+RUN apt-get update &&  apt-get install -y procps
     
 RUN git clone https://github.com/gd-rvemula/AutoML4All.git .
 
@@ -23,5 +24,4 @@ EXPOSE 8501
 
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
-# ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
-ENTRYPOINT ["/bin/sh", "streamlit run streamlit_app.py --server.port=8501 --server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
