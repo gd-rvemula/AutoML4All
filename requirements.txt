@@ -9,3 +9,4 @@ pycaret==3.0.4
 pickleshare==0.7.5
 seaborn==0.12.2
 streamlit==1.25.0
+pygwalker

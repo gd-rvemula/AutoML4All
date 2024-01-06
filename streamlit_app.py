@@ -12,6 +12,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler,LabelEncoder
 from sklearn.impute import SimpleImputer
 import pickle
+import pygwalker as pyg
+import streamlit.components.v1 as components
 
 
 if os.path.exists('dataset.csv'):
@@ -33,6 +35,11 @@ if choice == "Upload your data":
         df = pd.read_csv(file, index_col=None)
         df.to_csv('dataset.csv', index=None)
         st.dataframe(df)
+
+if choice == "Just Visualize":  
+    st.title("Visualize  your data")
+    pyg_html = pyg.walk(df,return_html=True)
+    components.html(pyg_html, height=1000, scrolling=True)
 
 
 if choice == "Perform EDA":

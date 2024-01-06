@@ -12,7 +12,10 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
+# Install vim 
 RUN apt-get update &&  apt-get install -y vim 
+
+#Install pcrops to run utilities like ps and top
 RUN apt-get update &&  apt-get install -y procps
     
 RUN git clone https://github.com/gd-rvemula/AutoML4All.git .
