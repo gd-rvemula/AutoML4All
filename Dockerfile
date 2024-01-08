@@ -14,21 +14,8 @@ RUN apt-get update && apt-get install -y \
     procps \
     && rm -rf /var/lib/apt/lists/*
     
-# RUN git clone https://github.com/gd-rvemula/AutoML4All.git .
+ RUN git clone https://github.com/gd-rvemula/AutoML4All.git .
 
-# RUN pip3 install -r requirements.txt
-
-# EXPOSE 8501
-
-
-
-
-# ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
-
-RUN /bin/bash -c '/app/start.sh'
+ENTRYPOINT ["/bin/bash", "-c", "source /app/start.sh" ]
 
 EXPOSE 8501
-
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
-
-CMD /bin/bash -c '/app/start.sh'
