@@ -10,13 +10,9 @@ RUN apt-get update && apt-get install -y \
     curl \
     software-properties-common \
     git \
+    vim \
+    procps \
     && rm -rf /var/lib/apt/lists/*
-
-# Install vim 
-RUN apt-get update &&  apt-get install -y vim 
-
-#Install pcrops to run utilities like ps and top
-RUN apt-get update &&  apt-get install -y procps
     
 RUN git clone https://github.com/gd-rvemula/AutoML4All.git .
 
@@ -29,4 +25,6 @@ HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
 # ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
 
-RUN /app/start.sh
+RUN /bin/bash -c '/app/start.sh'
+
+CMD /bin/bash -c '/app/start.sh'
