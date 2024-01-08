@@ -24,7 +24,7 @@ with st.sidebar:
     st.image("./logo.png")
     st.title("AutoML4All")
     st.info("This project powered by AutoML. Upload your data and choose type your Exploratory Data Analysis (EDA) and Prepare your data for ML modeling")
-    choice = st.radio("Choose the Desired operation", ["Upload your data","Perform EDA",'Data Preparing and Modeling'])
+    choice = st.radio("Choose the Desired operation", ["Upload your data","Perform EDA",'Data Preparing and Modeling','Just Visualize'])
 
 
 if choice == "Upload your data":
