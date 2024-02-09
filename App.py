@@ -22,7 +22,7 @@ with st.sidebar:
     st.image("./logo.png")
     st.title("AutoML4All")
     st.info("This project powered by AutoML. Upload your data and choose type your EDA and Prepare your data for ML modeling")
-    choice = st.radio("Choose the Desired operation", ["Upload your data","Perform EDA",'Data Preparing and Modeling'])
+    choice = st.radio("Choose the Desired operation", ["Upload your data","Perform EDA",'Data Preparing and Modeling','Chat with CSV'])
 
 
 if choice == "Upload your data":
@@ -61,6 +61,11 @@ if choice == "Perform EDA":
         new_df = df[selected_columns]
         st.dataframe(new_df)
 
+    if eda_choise =='Chat with CSV' :
+        selected_columns = st.multiselect('Select desired columns',df.columns)
+        new_df = df[selected_columns]
+        st.dataframe(new_df)
+    
     if eda_choise =='Show Value Counts' :
 
         try:
